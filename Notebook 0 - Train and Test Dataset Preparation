@@ -1,1 +1,175 @@
-{"metadata":{"kernelspec":{"language":"python","display_name":"Python 3","name":"python3"},"language_info":{"name":"python","version":"3.10.12","mimetype":"text/x-python","codemirror_mode":{"name":"ipython","version":3},"pygments_lexer":"ipython3","nbconvert_exporter":"python","file_extension":".py"},"kaggle":{"accelerator":"none","dataSources":[{"sourceId":4769020,"sourceType":"datasetVersion","datasetId":2760272}],"dockerImageVersionId":30822,"isInternetEnabled":true,"language":"python","sourceType":"notebook","isGpuEnabled":false}},"nbformat_minor":4,"nbformat":4,"cells":[{"cell_type":"code","source":"import os\nimport shutil\n\n# Membuat folder 'crime' jika belum ada\nif not os.path.exists(\"Crime Train\"):\n    os.makedirs(\"Crime Train\")\n\nif not os.path.exists(\"Crime Test\"):\n    os.makedirs(\"Crime Test\")\n\nif not os.path.exists(\"Crime\"):\n    os.makedirs(\"Crime\")\n\n# Path folder sumber\nsource_folders_crime = [\n    \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/burglary\",\n    \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\",\n    \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/shoplifting\"\n]\n\n# Menyalin isi folder sumber ke dalam folder 'crime'\nfor source_folder_crime in source_folders_crime:\n    for item_crime in os.listdir(source_folder_crime):\n        source_item_crime = os.path.join(source_folder_crime, item_crime)\n        dest_item_crime = os.path.join(\"Crime\", item_crime)\n        \n        # Menyalin file atau folder\n        if os.path.isfile(source_item_crime):\n            shutil.copy2(source_item_crime, dest_item_crime)\n        elif os.path.isdir(source_item_crime):\n            shutil.copytree(source_item_crime, dest_item_crime)\n\nprint(\"Folder 'crime' telah dibuat dan diisi dengan data.\")","metadata":{"_uuid":"8f2839f25d086af736a60e9eeb907d3b93b6e0e5","_cell_guid":"b1076dfc-b9ad-4769-8c92-a6c4dae69d19","trusted":true,"execution":{"iopub.status.busy":"2025-01-04T03:00:58.959693Z","iopub.execute_input":"2025-01-04T03:00:58.960106Z","iopub.status.idle":"2025-01-04T03:03:24.929904Z","shell.execute_reply.started":"2025-01-04T03:00:58.960075Z","shell.execute_reply":"2025-01-04T03:03:24.928097Z"}},"outputs":[{"name":"stdout","text":"Folder 'crime' telah dibuat dan diisi dengan data.\n","output_type":"stream"}],"execution_count":1},{"cell_type":"code","source":"import os\nimport pandas as pd\n\ncrime = [crime for crime in os.listdir(\"/kaggle/working/Crime\")]\n\ndf_train = pd.read_csv(\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/train.csv\")\ndf_train.head()\n\ndf_test = pd.read_csv(\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/test.csv\")\ndf_test.head()","metadata":{"trusted":true,"execution":{"iopub.status.busy":"2025-01-04T03:03:24.932112Z","iopub.execute_input":"2025-01-04T03:03:24.932445Z","iopub.status.idle":"2025-01-04T03:03:25.500005Z","shell.execute_reply.started":"2025-01-04T03:03:24.932417Z","shell.execute_reply":"2025-01-04T03:03:25.498951Z"}},"outputs":[{"execution_count":2,"output_type":"execute_result","data":{"text/plain":"   Unnamed: 0     label                             video_name\n0          20     abuse           data\\abuse\\Abuse021_x264.mp4\n1         360  fighting     data\\fighting\\Fighting012_x264.mp4\n2        1138    normal  data\\normal\\Normal_Videos816_x264.mp4\n3         969    normal  data\\normal\\Normal_Videos627_x264.mp4\n4         167   assault       data\\assault\\Assault018_x264.mp4","text/html":"<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>label</th>\n      <th>video_name</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>20</td>\n      <td>abuse</td>\n      <td>data\\abuse\\Abuse021_x264.mp4</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>360</td>\n      <td>fighting</td>\n      <td>data\\fighting\\Fighting012_x264.mp4</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>1138</td>\n      <td>normal</td>\n      <td>data\\normal\\Normal_Videos816_x264.mp4</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>969</td>\n      <td>normal</td>\n      <td>data\\normal\\Normal_Videos627_x264.mp4</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>167</td>\n      <td>assault</td>\n      <td>data\\assault\\Assault018_x264.mp4</td>\n    </tr>\n  </tbody>\n</table>\n</div>"},"metadata":{}}],"execution_count":2},{"cell_type":"code","source":"df_train[\"video_name\"] = df_train[\"video_name\"].str.split(\"\\\\\").str[-1]\n\ndf_train = df_train[df_train[\"video_name\"].isin(crime)].reset_index(drop=True)\n\ninfos_train = list(df_train.T.to_dict().values())\ninfos_train\n\ndf_test[\"video_name\"] = df_test[\"video_name\"].str.split(\"\\\\\").str[-1]\n\ndf_test = df_test[df_test[\"video_name\"].isin(crime)].reset_index(drop=True)\n\ninfos_test = list(df_test.T.to_dict().values())\ninfos_test","metadata":{"trusted":true,"execution":{"iopub.status.busy":"2025-01-04T03:03:25.501973Z","iopub.execute_input":"2025-01-04T03:03:25.502294Z","iopub.status.idle":"2025-01-04T03:03:25.545001Z","shell.execute_reply.started":"2025-01-04T03:03:25.502268Z","shell.execute_reply":"2025-01-04T03:03:25.544069Z"}},"outputs":[{"execution_count":3,"output_type":"execute_result","data":{"text/plain":"[{'Unnamed: 0': 1789,\n  'label': 'stealing',\n  'video_name': 'Stealing048_x264.mp4'},\n {'Unnamed: 0': 1704,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting006_x264.mp4'},\n {'Unnamed: 0': 1720,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting024_x264.mp4'},\n {'Unnamed: 0': 1722,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting026_x264.mp4'},\n {'Unnamed: 0': 276,\n  'label': 'burglary',\n  'video_name': 'Burglary077_x264.mp4'},\n {'Unnamed: 0': 258,\n  'label': 'burglary',\n  'video_name': 'Burglary059_x264.mp4'},\n {'Unnamed: 0': 285,\n  'label': 'burglary',\n  'video_name': 'Burglary086_x264.mp4'},\n {'Unnamed: 0': 1785,\n  'label': 'stealing',\n  'video_name': 'Stealing044_x264.mp4'},\n {'Unnamed: 0': 1825,\n  'label': 'stealing',\n  'video_name': 'Stealing088_x264.mp4'},\n {'Unnamed: 0': 1805,\n  'label': 'stealing',\n  'video_name': 'Stealing066_x264.mp4'},\n {'Unnamed: 0': 1803,\n  'label': 'stealing',\n  'video_name': 'Stealing063_x264.mp4'},\n {'Unnamed: 0': 247,\n  'label': 'burglary',\n  'video_name': 'Burglary048_x264.mp4'},\n {'Unnamed: 0': 1810,\n  'label': 'stealing',\n  'video_name': 'Stealing071_x264.mp4'},\n {'Unnamed: 0': 1811,\n  'label': 'stealing',\n  'video_name': 'Stealing072_x264.mp4'},\n {'Unnamed: 0': 226,\n  'label': 'burglary',\n  'video_name': 'Burglary027_x264.mp4'},\n {'Unnamed: 0': 220,\n  'label': 'burglary',\n  'video_name': 'Burglary021_x264.mp4'},\n {'Unnamed: 0': 265,\n  'label': 'burglary',\n  'video_name': 'Burglary066_x264.mp4'},\n {'Unnamed: 0': 228,\n  'label': 'burglary',\n  'video_name': 'Burglary029_x264.mp4'},\n {'Unnamed: 0': 1794,\n  'label': 'stealing',\n  'video_name': 'Stealing053_x264.mp4'},\n {'Unnamed: 0': 232,\n  'label': 'burglary',\n  'video_name': 'Burglary033_x264.mp4'},\n {'Unnamed: 0': 1835,\n  'label': 'stealing',\n  'video_name': 'Stealing100_x264.mp4'},\n {'Unnamed: 0': 264,\n  'label': 'burglary',\n  'video_name': 'Burglary065_x264.mp4'},\n {'Unnamed: 0': 269,\n  'label': 'burglary',\n  'video_name': 'Burglary070_x264.mp4'},\n {'Unnamed: 0': 280,\n  'label': 'burglary',\n  'video_name': 'Burglary081_x264.mp4'},\n {'Unnamed: 0': 1830,\n  'label': 'stealing',\n  'video_name': 'Stealing094_x264.mp4'},\n {'Unnamed: 0': 273,\n  'label': 'burglary',\n  'video_name': 'Burglary074_x264.mp4'},\n {'Unnamed: 0': 214,\n  'label': 'burglary',\n  'video_name': 'Burglary015_x264.mp4'},\n {'Unnamed: 0': 1823,\n  'label': 'stealing',\n  'video_name': 'Stealing086_x264.mp4'},\n {'Unnamed: 0': 1801,\n  'label': 'stealing',\n  'video_name': 'Stealing061_x264.mp4'},\n {'Unnamed: 0': 1709,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting012_x264.mp4'},\n {'Unnamed: 0': 1806,\n  'label': 'stealing',\n  'video_name': 'Stealing067_x264.mp4'},\n {'Unnamed: 0': 212,\n  'label': 'burglary',\n  'video_name': 'Burglary013_x264.mp4'},\n {'Unnamed: 0': 210,\n  'label': 'burglary',\n  'video_name': 'Burglary011_x264.mp4'},\n {'Unnamed: 0': 215,\n  'label': 'burglary',\n  'video_name': 'Burglary016_x264.mp4'},\n {'Unnamed: 0': 219,\n  'label': 'burglary',\n  'video_name': 'Burglary020_x264.mp4'},\n {'Unnamed: 0': 1809,\n  'label': 'stealing',\n  'video_name': 'Stealing070_x264.mp4'},\n {'Unnamed: 0': 1748,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting054_x264.mp4'},\n {'Unnamed: 0': 1701,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting003_x264.mp4'},\n {'Unnamed: 0': 1799,\n  'label': 'stealing',\n  'video_name': 'Stealing059_x264.mp4'},\n {'Unnamed: 0': 1847,\n  'label': 'stealing',\n  'video_name': 'Stealing112_x264.mp4'},\n {'Unnamed: 0': 1829,\n  'label': 'stealing',\n  'video_name': 'Stealing093_x264.mp4'},\n {'Unnamed: 0': 239,\n  'label': 'burglary',\n  'video_name': 'Burglary040_x264.mp4'},\n {'Unnamed: 0': 1738,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting043_x264.mp4'},\n {'Unnamed: 0': 1800,\n  'label': 'stealing',\n  'video_name': 'Stealing060_x264.mp4'},\n {'Unnamed: 0': 284,\n  'label': 'burglary',\n  'video_name': 'Burglary085_x264.mp4'},\n {'Unnamed: 0': 1728,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting032_x264.mp4'},\n {'Unnamed: 0': 1729,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting033_x264.mp4'},\n {'Unnamed: 0': 1741,\n  'label': 'shoplifting',\n  'video_name': 'Shoplifting047_x264.mp4'},\n {'Unnamed: 0': 1839,\n  'label': 'stealing',\n  'video_name': 'Stealing104_x264.mp4'},\n {'Unnamed: 0': 1781,\n  'label': 'stealing',\n  'video_name': 'Stealing036_x264.mp4'}]"},"metadata":{}}],"execution_count":3},{"cell_type":"code","source":"# Memindahkan file video ke folder \"Crime Train\"\nfor info_train in infos_train:\n    video_name_train = info_train['video_name']\n    source_path_train = os.path.join(\"/kaggle/working/Crime\", video_name_train)  # Path asal file di folder \"Crime\"\n    destination_path_train = os.path.join(\"Crime Train\", video_name_train)  # Path tujuan di folder \"Crime Train\"\n\n    if os.path.exists(source_path_train):\n        shutil.move(source_path_train, destination_path_train)\n        print(f\"File {video_name_train} dipindahkan ke Crime Train\")\n    else:\n        print(f\"File {video_name_train} tidak ditemukan di folder Crime\")\n\nprint(\"Proses pemindahan selesai. train\")\n\n# Memindahkan file video ke folder \"Crime Test\"\nfor info_test in infos_test:\n    video_name_test = info_test['video_name']\n    source_path_test = os.path.join(\"/kaggle/working/Crime\", video_name_test)  # Path asal file di folder \"Crime\"\n    destination_path_test = os.path.join(\"Crime Test\", video_name_test)  # Path tujuan di folder \"Crime Train\"\n\n    if os.path.exists(source_path_test):\n        shutil.move(source_path_test, destination_path_test)\n        print(f\"File {video_name_test} dipindahkan ke Crime Train\")\n    else:\n        print(f\"File {video_name_test} tidak ditemukan di folder Crime\")\n\nprint(\"Proses pemindahan selesai. test\")","metadata":{"trusted":true,"execution":{"iopub.status.busy":"2025-01-04T03:04:02.116056Z","iopub.execute_input":"2025-01-04T03:04:02.116478Z","iopub.status.idle":"2025-01-04T03:04:02.187714Z","shell.execute_reply.started":"2025-01-04T03:04:02.116431Z","shell.execute_reply":"2025-01-04T03:04:02.186345Z"}},"outputs":[{"name":"stdout","text":"File Stealing097_x264.mp4 tidak ditemukan di folder Crime\nFile Stealing084_x264.mp4 dipindahkan ke Crime Train\nFile Burglary018_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting013_x264.mp4 dipindahkan ke Crime Train\nFile Burglary091_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting038_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting028_x264.mp4 dipindahkan ke Crime Train\nFile Burglary053_x264.mp4 dipindahkan ke Crime Train\nFile Burglary052_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting039_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting048_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting049_x264.mp4 dipindahkan ke Crime Train\nFile Stealing004_x264.mp4 dipindahkan ke Crime Train\nFile Stealing114_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting025_x264.mp4 dipindahkan ke Crime Train\nFile Burglary094_x264.mp4 dipindahkan ke Crime Train\nFile Stealing087_x264.mp4 dipindahkan ke Crime Train\nFile Burglary044_x264.mp4 dipindahkan ke Crime Train\nFile Burglary043_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting041_x264.mp4 dipindahkan ke Crime Train\nFile Burglary098_x264.mp4 dipindahkan ke Crime Train\nFile Stealing010_x264.mp4 dipindahkan ke Crime Train\nFile Stealing017_x264.mp4 dipindahkan ke Crime Train\nFile Burglary023_x264.mp4 dipindahkan ke Crime Train\nFile Stealing110_x264.mp4 dipindahkan ke Crime Train\nFile Burglary097_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting034_x264.mp4 dipindahkan ke Crime Train\nFile Burglary026_x264.mp4 dipindahkan ke Crime Train\nFile Burglary001_x264.mp4 dipindahkan ke Crime Train\nFile Stealing046_x264.mp4 dipindahkan ke Crime Train\nFile Burglary079_x264.mp4 dipindahkan ke Crime Train\nFile Burglary003_x264.mp4 dipindahkan ke Crime Train\nFile Burglary068_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting010_x264.mp4 dipindahkan ke Crime Train\nFile Stealing068_x264.mp4 dipindahkan ke Crime Train\nFile Burglary035_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting030_x264.mp4 dipindahkan ke Crime Train\nFile Stealing080_x264.mp4 dipindahkan ke Crime Train\nFile Burglary009_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting018_x264.mp4 dipindahkan ke Crime Train\nFile Stealing049_x264.mp4 dipindahkan ke Crime Train\nFile Stealing018_x264.mp4 dipindahkan ke Crime Train\nFile Burglary010_x264.mp4 dipindahkan ke Crime Train\nFile Stealing107_x264.mp4 dipindahkan ke Crime Train\nFile Burglary093_x264.mp4 dipindahkan ke Crime Train\nFile Burglary005_x264.mp4 dipindahkan ke Crime Train\nFile Stealing082_x264.mp4 dipindahkan ke Crime Train\nFile Burglary069_x264.mp4 dipindahkan ke Crime Train\nFile Stealing011_x264.mp4 dipindahkan ke Crime Train\nFile Burglary022_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting001_x264.mp4 dipindahkan ke Crime Train\nFile Stealing098_x264.mp4 dipindahkan ke Crime Train\nFile Stealing054_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting004_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting008_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting005_x264.mp4 dipindahkan ke Crime Train\nFile Stealing052_x264.mp4 dipindahkan ke Crime Train\nFile Burglary002_x264.mp4 dipindahkan ke Crime Train\nFile Burglary064_x264.mp4 dipindahkan ke Crime Train\nFile Burglary042_x264.mp4 dipindahkan ke Crime Train\nFile Stealing019_x264.mp4 dipindahkan ke Crime Train\nFile Burglary088_x264.mp4 dipindahkan ke Crime Train\nFile Burglary057_x264.mp4 dipindahkan ke Crime Train\nFile Stealing009_x264.mp4 dipindahkan ke Crime Train\nFile Stealing106_x264.mp4 dipindahkan ke Crime Train\nFile Burglary041_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting019_x264.mp4 dipindahkan ke Crime Train\nFile Stealing002_x264.mp4 dipindahkan ke Crime Train\nFile Burglary078_x264.mp4 dipindahkan ke Crime Train\nFile Stealing028_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting017_x264.mp4 dipindahkan ke Crime Train\nFile Stealing013_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting045_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting040_x264.mp4 dipindahkan ke Crime Train\nFile Stealing092_x264.mp4 dipindahkan ke Crime Train\nFile Burglary049_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting020_x264.mp4 dipindahkan ke Crime Train\nFile Stealing035_x264.mp4 dipindahkan ke Crime Train\nFile Burglary045_x264.mp4 dipindahkan ke Crime Train\nFile Stealing021_x264.mp4 dipindahkan ke Crime Train\nFile Stealing037_x264.mp4 dipindahkan ke Crime Train\nFile Stealing108_x264.mp4 dipindahkan ke Crime Train\nFile Burglary076_x264.mp4 dipindahkan ke Crime Train\nFile Burglary054_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting022_x264.mp4 dipindahkan ke Crime Train\nFile Burglary006_x264.mp4 dipindahkan ke Crime Train\nFile Stealing102_x264.mp4 dipindahkan ke Crime Train\nFile Burglary046_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting016_x264.mp4 dipindahkan ke Crime Train\nFile Stealing029_x264.mp4 dipindahkan ke Crime Train\nFile Stealing045_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting027_x264.mp4 dipindahkan ke Crime Train\nFile Burglary060_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting031_x264.mp4 dipindahkan ke Crime Train\nFile Stealing081_x264.mp4 dipindahkan ke Crime Train\nFile Burglary061_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting021_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting052_x264.mp4 dipindahkan ke Crime Train\nFile Burglary080_x264.mp4 dipindahkan ke Crime Train\nFile Burglary025_x264.mp4 dipindahkan ke Crime Train\nFile Burglary036_x264.mp4 dipindahkan ke Crime Train\nFile Stealing113_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting007_x264.mp4 dipindahkan ke Crime Train\nFile Burglary037_x264.mp4 dipindahkan ke Crime Train\nFile Burglary051_x264.mp4 dipindahkan ke Crime Train\nFile Stealing023_x264.mp4 dipindahkan ke Crime Train\nFile Stealing020_x264.mp4 dipindahkan ke Crime Train\nFile Burglary055_x264.mp4 dipindahkan ke Crime Train\nFile Burglary067_x264.mp4 dipindahkan ke Crime Train\nFile Stealing008_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting036_x264.mp4 dipindahkan ke Crime Train\nFile Stealing006_x264.mp4 dipindahkan ke Crime Train\nFile Burglary024_x264.mp4 dipindahkan ke Crime Train\nFile Burglary089_x264.mp4 dipindahkan ke Crime Train\nFile Stealing051_x264.mp4 dipindahkan ke Crime Train\nFile Stealing031_x264.mp4 dipindahkan ke Crime Train\nFile Stealing078_x264.mp4 dipindahkan ke Crime Train\nFile Stealing079_x264.mp4 dipindahkan ke Crime Train\nFile Stealing073_x264.mp4 dipindahkan ke Crime Train\nFile Stealing043_x264.mp4 dipindahkan ke Crime Train\nFile Stealing058_x264.mp4 dipindahkan ke Crime Train\nFile Burglary030_x264.mp4 dipindahkan ke Crime Train\nFile Burglary075_x264.mp4 dipindahkan ke Crime Train\nFile Burglary017_x264.mp4 dipindahkan ke Crime Train\nFile Stealing062_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting044_x264.mp4 dipindahkan ke Crime Train\nFile Stealing025_x264.mp4 dipindahkan ke Crime Train\nFile Burglary031_x264.mp4 dipindahkan ke Crime Train\nFile Burglary004_x264.mp4 dipindahkan ke Crime Train\nFile Burglary083_x264.mp4 dipindahkan ke Crime Train\nFile Stealing030_x264.mp4 dipindahkan ke Crime Train\nFile Burglary028_x264.mp4 dipindahkan ke Crime Train\nFile Stealing026_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting055_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting050_x264.mp4 dipindahkan ke Crime Train\nFile Burglary072_x264.mp4 dipindahkan ke Crime Train\nFile Burglary007_x264.mp4 dipindahkan ke Crime Train\nFile Burglary014_x264.mp4 dipindahkan ke Crime Train\nFile Burglary012_x264.mp4 dipindahkan ke Crime Train\nFile Burglary100_x264.mp4 dipindahkan ke Crime Train\nFile Burglary096_x264.mp4 dipindahkan ke Crime Train\nFile Stealing096_x264.mp4 dipindahkan ke Crime Train\nFile Stealing077_x264.mp4 dipindahkan ke Crime Train\nFile Burglary032_x264.mp4 dipindahkan ke Crime Train\nFile Stealing032_x264.mp4 dipindahkan ke Crime Train\nFile Stealing069_x264.mp4 dipindahkan ke Crime Train\nFile Stealing050_x264.mp4 dipindahkan ke Crime Train\nFile Burglary084_x264.mp4 dipindahkan ke Crime Train\nFile Stealing105_x264.mp4 dipindahkan ke Crime Train\nFile Stealing027_x264.mp4 dipindahkan ke Crime Train\nFile Burglary062_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting029_x264.mp4 dipindahkan ke Crime Train\nFile Burglary047_x264.mp4 dipindahkan ke Crime Train\nFile Stealing103_x264.mp4 dipindahkan ke Crime Train\nFile Burglary073_x264.mp4 dipindahkan ke Crime Train\nFile Burglary063_x264.mp4 dipindahkan ke Crime Train\nFile Stealing012_x264.mp4 dipindahkan ke Crime Train\nFile Burglary071_x264.mp4 dipindahkan ke Crime Train\nFile Stealing057_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting053_x264.mp4 dipindahkan ke Crime Train\nFile Burglary058_x264.mp4 dipindahkan ke Crime Train\nFile Stealing007_x264.mp4 dipindahkan ke Crime Train\nFile Burglary090_x264.mp4 dipindahkan ke Crime Train\nFile Stealing055_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting051_x264.mp4 dipindahkan ke Crime Train\nFile Stealing042_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting015_x264.mp4 dipindahkan ke Crime Train\nFile Stealing083_x264.mp4 dipindahkan ke Crime Train\nFile Stealing047_x264.mp4 dipindahkan ke Crime Train\nFile Stealing101_x264.mp4 dipindahkan ke Crime Train\nFile Burglary038_x264.mp4 dipindahkan ke Crime Train\nFile Burglary056_x264.mp4 dipindahkan ke Crime Train\nFile Stealing109_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting014_x264.mp4 dipindahkan ke Crime Train\nFile Stealing074_x264.mp4 dipindahkan ke Crime Train\nFile Stealing065_x264.mp4 dipindahkan ke Crime Train\nFile Stealing111_x264.mp4 dipindahkan ke Crime Train\nFile Burglary034_x264.mp4 dipindahkan ke Crime Train\nFile Stealing024_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting009_x264.mp4 dipindahkan ke Crime Train\nFile Stealing016_x264.mp4 dipindahkan ke Crime Train\nFile Stealing015_x264.mp4 dipindahkan ke Crime Train\nFile Burglary087_x264.mp4 dipindahkan ke Crime Train\nFile Stealing089_x264.mp4 dipindahkan ke Crime Train\nFile Burglary039_x264.mp4 dipindahkan ke Crime Train\nFile Burglary082_x264.mp4 dipindahkan ke Crime Train\nFile Stealing014_x264.mp4 dipindahkan ke Crime Train\nFile Burglary008_x264.mp4 dipindahkan ke Crime Train\nFile Burglary092_x264.mp4 dipindahkan ke Crime Train\nFile Stealing075_x264.mp4 dipindahkan ke Crime Train\nFile Burglary019_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting037_x264.mp4 dipindahkan ke Crime Train\nFile Stealing095_x264.mp4 dipindahkan ke Crime Train\nFile Stealing003_x264.mp4 dipindahkan ke Crime Train\nFile Burglary099_x264.mp4 dipindahkan ke Crime Train\nFile Stealing022_x264.mp4 dipindahkan ke Crime Train\nFile Burglary050_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting042_x264.mp4 dipindahkan ke Crime Train\nFile Burglary095_x264.mp4 dipindahkan ke Crime Train\nFile Stealing091_x264.mp4 dipindahkan ke Crime Train\nProses pemindahan selesai. train\nFile Stealing048_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting006_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting024_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting026_x264.mp4 dipindahkan ke Crime Train\nFile Burglary077_x264.mp4 dipindahkan ke Crime Train\nFile Burglary059_x264.mp4 dipindahkan ke Crime Train\nFile Burglary086_x264.mp4 dipindahkan ke Crime Train\nFile Stealing044_x264.mp4 dipindahkan ke Crime Train\nFile Stealing088_x264.mp4 dipindahkan ke Crime Train\nFile Stealing066_x264.mp4 dipindahkan ke Crime Train\nFile Stealing063_x264.mp4 dipindahkan ke Crime Train\nFile Burglary048_x264.mp4 dipindahkan ke Crime Train\nFile Stealing071_x264.mp4 dipindahkan ke Crime Train\nFile Stealing072_x264.mp4 dipindahkan ke Crime Train\nFile Burglary027_x264.mp4 dipindahkan ke Crime Train\nFile Burglary021_x264.mp4 dipindahkan ke Crime Train\nFile Burglary066_x264.mp4 dipindahkan ke Crime Train\nFile Burglary029_x264.mp4 dipindahkan ke Crime Train\nFile Stealing053_x264.mp4 dipindahkan ke Crime Train\nFile Burglary033_x264.mp4 dipindahkan ke Crime Train\nFile Stealing100_x264.mp4 dipindahkan ke Crime Train\nFile Burglary065_x264.mp4 dipindahkan ke Crime Train\nFile Burglary070_x264.mp4 dipindahkan ke Crime Train\nFile Burglary081_x264.mp4 dipindahkan ke Crime Train\nFile Stealing094_x264.mp4 dipindahkan ke Crime Train\nFile Burglary074_x264.mp4 dipindahkan ke Crime Train\nFile Burglary015_x264.mp4 dipindahkan ke Crime Train\nFile Stealing086_x264.mp4 dipindahkan ke Crime Train\nFile Stealing061_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting012_x264.mp4 dipindahkan ke Crime Train\nFile Stealing067_x264.mp4 dipindahkan ke Crime Train\nFile Burglary013_x264.mp4 dipindahkan ke Crime Train\nFile Burglary011_x264.mp4 dipindahkan ke Crime Train\nFile Burglary016_x264.mp4 dipindahkan ke Crime Train\nFile Burglary020_x264.mp4 dipindahkan ke Crime Train\nFile Stealing070_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting054_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting003_x264.mp4 dipindahkan ke Crime Train\nFile Stealing059_x264.mp4 dipindahkan ke Crime Train\nFile Stealing112_x264.mp4 dipindahkan ke Crime Train\nFile Stealing093_x264.mp4 dipindahkan ke Crime Train\nFile Burglary040_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting043_x264.mp4 dipindahkan ke Crime Train\nFile Stealing060_x264.mp4 dipindahkan ke Crime Train\nFile Burglary085_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting032_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting033_x264.mp4 dipindahkan ke Crime Train\nFile Shoplifting047_x264.mp4 dipindahkan ke Crime Train\nFile Stealing104_x264.mp4 dipindahkan ke Crime Train\nFile Stealing036_x264.mp4 dipindahkan ke Crime Train\nProses pemindahan selesai. test\n","output_type":"stream"}],"execution_count":5},{"cell_type":"code","source":"","metadata":{"trusted":true},"outputs":[],"execution_count":null}]}
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "a7a30c46",
+   "metadata": {
+    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
+    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
+    "execution": {
+     "iopub.execute_input": "2025-02-12T09:05:11.274383Z",
+     "iopub.status.busy": "2025-02-12T09:05:11.273925Z",
+     "iopub.status.idle": "2025-02-12T09:08:46.297927Z",
+     "shell.execute_reply": "2025-02-12T09:08:46.295853Z"
+    },
+    "papermill": {
+     "duration": 215.035331,
+     "end_time": "2025-02-12T09:08:46.305722",
+     "exception": false,
+     "start_time": "2025-02-12T09:05:11.270391",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dataset telah dipisahkan dan dipindahkan sesuai struktur yang diinginkan.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "import shutil\n",
+    "import random\n",
+    "\n",
+    "# Direktori sumber\n",
+    "source_folders = {\n",
+    "    \"Normal\": [\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/normal\"],\n",
+    "    \"Vandalisme\": [\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/vandalism\",\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/arson\",\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/explosion\"\n",
+    "    ],\n",
+    "    \"Pencurian\": [\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/burglary\",\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\",\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/robbery\"\n",
+    "    ]\n",
+    "}\n",
+    "\n",
+    "# Direktori tujuan\n",
+    "destination_root = \"Dataset\"\n",
+    "subsets = [\"Training\", \"Validation\", \"Test\"]\n",
+    "categories = [\"Normal\", \"Vandalisme\", \"Pencurian\"]\n",
+    "\n",
+    "# Membuat struktur folder\n",
+    "for subset in subsets:\n",
+    "    for category in categories:\n",
+    "        os.makedirs(os.path.join(destination_root, subset, category), exist_ok=True)\n",
+    "\n",
+    "# Fungsi untuk mengambil file dari direktori sumber\n",
+    "def collect_files(source_dirs, limit=None):\n",
+    "    files = []\n",
+    "    for source_dir in source_dirs:\n",
+    "        if os.path.exists(source_dir):\n",
+    "            files.extend([os.path.join(source_dir, f) for f in os.listdir(source_dir) if os.path.isfile(os.path.join(source_dir, f))])\n",
+    "    if limit:\n",
+    "        files = random.sample(files, min(limit, len(files)))\n",
+    "    return files\n",
+    "\n",
+    "# Mengumpulkan data\n",
+    "file_data = {\n",
+    "    \"Normal\": collect_files(source_folders[\"Normal\"], limit=30),\n",
+    "    \"Vandalisme\": collect_files(source_folders[\"Vandalisme\"]),\n",
+    "    \"Pencurian\": collect_files(source_folders[\"Pencurian\"])\n",
+    "}\n",
+    "\n",
+    "# Fungsi untuk membagi data\n",
+    "def split_data(files):\n",
+    "    random.shuffle(files)\n",
+    "    train_size = int(0.7 * len(files))\n",
+    "    val_size = int(0.2 * len(files))\n",
+    "    \n",
+    "    train_files = files[:train_size]\n",
+    "    val_files = files[train_size:train_size + val_size]\n",
+    "    test_files = files[train_size + val_size:]\n",
+    "    \n",
+    "    return train_files, val_files, test_files\n",
+    "\n",
+    "# Memindahkan file ke dalam struktur dataset\n",
+    "for category, files in file_data.items():\n",
+    "    train_files, val_files, test_files = split_data(files)\n",
+    "    \n",
+    "    for file_path in train_files:\n",
+    "        shutil.copy2(file_path, os.path.join(destination_root, \"Training\", category, os.path.basename(file_path)))\n",
+    "    \n",
+    "    for file_path in val_files:\n",
+    "        shutil.copy2(file_path, os.path.join(destination_root, \"Validation\", category, os.path.basename(file_path)))\n",
+    "    \n",
+    "    for file_path in test_files:\n",
+    "        shutil.copy2(file_path, os.path.join(destination_root, \"Test\", category, os.path.basename(file_path)))\n",
+    "\n",
+    "print(\"Dataset telah dipisahkan dan dipindahkan sesuai struktur yang diinginkan.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d1ab9ad0",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001338,
+     "end_time": "2025-02-12T09:08:46.312545",
+     "exception": false,
+     "start_time": "2025-02-12T09:08:46.311207",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [
+    {
+     "datasetId": 2760272,
+     "sourceId": 4769020,
+     "sourceType": "datasetVersion"
+    }
+   ],
+   "dockerImageVersionId": 30822,
+   "isGpuEnabled": false,
+   "isInternetEnabled": true,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 219.105954,
+   "end_time": "2025-02-12T09:08:46.840115",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2025-02-12T09:05:07.734161",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
