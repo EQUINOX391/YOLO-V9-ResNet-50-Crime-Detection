@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "a7a30c46",
+   "id": "966e220b",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-12T09:05:11.274383Z",
-     "iopub.status.busy": "2025-02-12T09:05:11.273925Z",
-     "iopub.status.idle": "2025-02-12T09:08:46.297927Z",
-     "shell.execute_reply": "2025-02-12T09:08:46.295853Z"
+     "iopub.execute_input": "2025-02-15T19:45:55.302412Z",
+     "iopub.status.busy": "2025-02-15T19:45:55.301963Z",
+     "iopub.status.idle": "2025-02-15T19:47:42.527539Z",
+     "shell.execute_reply": "2025-02-15T19:47:42.525285Z"
     },
     "papermill": {
-     "duration": 215.035331,
-     "end_time": "2025-02-12T09:08:46.305722",
+     "duration": 107.318228,
+     "end_time": "2025-02-15T19:47:42.616248",
      "exception": false,
-     "start_time": "2025-02-12T09:05:11.270391",
+     "start_time": "2025-02-15T19:45:55.298020",
      "status": "completed"
     },
     "tags": []
@@ -41,13 +41,9 @@
     "    \"Normal\": [\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/normal\"],\n",
     "    \"Vandalisme\": [\n",
     "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/vandalism\",\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/arson\",\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/explosion\"\n",
     "    ],\n",
     "    \"Pencurian\": [\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/burglary\",\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\",\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/robbery\"\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\"\n",
     "    ]\n",
     "}\n",
     "\n",
@@ -109,13 +105,13 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d1ab9ad0",
+   "id": "ca3c5198",
    "metadata": {
     "papermill": {
-     "duration": 0.001338,
-     "end_time": "2025-02-12T09:08:46.312545",
+     "duration": 0.121683,
+     "end_time": "2025-02-15T19:47:42.746210",
      "exception": false,
-     "start_time": "2025-02-12T09:08:46.311207",
+     "start_time": "2025-02-15T19:47:42.624527",
      "status": "completed"
     },
     "tags": []
@@ -159,14 +155,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 219.105954,
-   "end_time": "2025-02-12T09:08:46.840115",
+   "duration": 111.080868,
+   "end_time": "2025-02-15T19:47:43.475589",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-12T09:05:07.734161",
+   "start_time": "2025-02-15T19:45:52.394721",
    "version": "2.6.0"
   }
  },
