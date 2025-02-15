@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "d703124a",
+   "id": "705d21a0",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-01-04T05:06:16.464185Z",
-     "iopub.status.busy": "2025-01-04T05:06:16.463872Z",
-     "iopub.status.idle": "2025-01-04T05:06:21.940763Z",
-     "shell.execute_reply": "2025-01-04T05:06:21.939879Z"
+     "iopub.execute_input": "2025-02-15T20:14:57.344443Z",
+     "iopub.status.busy": "2025-02-15T20:14:57.344150Z",
+     "iopub.status.idle": "2025-02-15T20:15:02.633327Z",
+     "shell.execute_reply": "2025-02-15T20:15:02.632218Z"
     },
     "papermill": {
-     "duration": 5.48138,
-     "end_time": "2025-01-04T05:06:21.942337",
+     "duration": 5.293738,
+     "end_time": "2025-02-15T20:15:02.635036",
      "exception": false,
-     "start_time": "2025-01-04T05:06:16.460957",
+     "start_time": "2025-02-15T20:14:57.341298",
      "status": "completed"
     },
     "tags": []
@@ -28,50 +28,61 @@
      "output_type": "stream",
      "text": [
       "Collecting ultralytics\r\n",
-      "  Downloading ultralytics-8.3.57-py3-none-any.whl.metadata (35 kB)\r\n",
-      "Requirement already satisfied: numpy>=1.23.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (1.26.4)\r\n",
-      "Requirement already satisfied: matplotlib>=3.3.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (3.7.1)\r\n",
+      "  Downloading ultralytics-8.3.75-py3-none-any.whl.metadata (35 kB)\r\n",
+      "Requirement already satisfied: numpy<=2.1.1,>=1.23.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (1.26.4)\r\n",
+      "Requirement already satisfied: matplotlib>=3.3.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (3.7.5)\r\n",
       "Requirement already satisfied: opencv-python>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (4.10.0.84)\r\n",
-      "Requirement already satisfied: pillow>=7.1.2 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (10.4.0)\r\n",
+      "Requirement already satisfied: pillow>=7.1.2 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (11.0.0)\r\n",
       "Requirement already satisfied: pyyaml>=5.3.1 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (6.0.2)\r\n",
       "Requirement already satisfied: requests>=2.23.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (2.32.3)\r\n",
       "Requirement already satisfied: scipy>=1.4.1 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (1.13.1)\r\n",
-      "Requirement already satisfied: torch>=1.8.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (2.4.1+cu121)\r\n",
-      "Requirement already satisfied: torchvision>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (0.19.1+cu121)\r\n",
-      "Requirement already satisfied: tqdm>=4.64.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (4.66.5)\r\n",
+      "Requirement already satisfied: torch>=1.8.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (2.5.1+cu121)\r\n",
+      "Requirement already satisfied: torchvision>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (0.20.1+cu121)\r\n",
+      "Requirement already satisfied: tqdm>=4.64.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (4.67.1)\r\n",
       "Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from ultralytics) (5.9.5)\r\n",
       "Requirement already satisfied: py-cpuinfo in /usr/local/lib/python3.10/dist-packages (from ultralytics) (9.0.0)\r\n",
-      "Requirement already satisfied: pandas>=1.1.4 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (2.1.4)\r\n",
+      "Requirement already satisfied: pandas>=1.1.4 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (2.2.3)\r\n",
       "Requirement already satisfied: seaborn>=0.11.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (0.12.2)\r\n",
       "Collecting ultralytics-thop>=2.0.0 (from ultralytics)\r\n",
-      "  Downloading ultralytics_thop-2.0.13-py3-none-any.whl.metadata (9.4 kB)\r\n",
-      "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (1.3.0)\r\n",
+      "  Downloading ultralytics_thop-2.0.14-py3-none-any.whl.metadata (9.4 kB)\r\n",
+      "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (1.3.1)\r\n",
       "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (0.12.1)\r\n",
-      "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (4.53.1)\r\n",
+      "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (4.55.3)\r\n",
       "Requirement already satisfied: kiwisolver>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (1.4.7)\r\n",
-      "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (24.1)\r\n",
-      "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (3.1.4)\r\n",
-      "Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (2.8.2)\r\n",
-      "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.1.4->ultralytics) (2024.2)\r\n",
-      "Requirement already satisfied: tzdata>=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.1.4->ultralytics) (2024.1)\r\n",
-      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (3.3.2)\r\n",
+      "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (24.2)\r\n",
+      "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (3.2.0)\r\n",
+      "Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=3.3.0->ultralytics) (2.9.0.post0)\r\n",
+      "Requirement already satisfied: mkl_fft in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (1.3.8)\r\n",
+      "Requirement already satisfied: mkl_random in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (1.2.4)\r\n",
+      "Requirement already satisfied: mkl_umath in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (0.1.1)\r\n",
+      "Requirement already satisfied: mkl in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (2025.0.1)\r\n",
+      "Requirement already satisfied: tbb4py in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (2022.0.0)\r\n",
+      "Requirement already satisfied: mkl-service in /usr/local/lib/python3.10/dist-packages (from numpy<=2.1.1,>=1.23.0->ultralytics) (2.4.1)\r\n",
+      "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.1.4->ultralytics) (2025.1)\r\n",
+      "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas>=1.1.4->ultralytics) (2025.1)\r\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (3.4.1)\r\n",
       "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (3.10)\r\n",
-      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (2.2.3)\r\n",
-      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (2024.8.30)\r\n",
-      "Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (3.16.1)\r\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (2.3.0)\r\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.23.0->ultralytics) (2025.1.31)\r\n",
+      "Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (3.17.0)\r\n",
       "Requirement already satisfied: typing-extensions>=4.8.0 in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (4.12.2)\r\n",
-      "Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (1.13.3)\r\n",
-      "Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (3.3)\r\n",
+      "Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (3.4.2)\r\n",
       "Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (3.1.4)\r\n",
-      "Requirement already satisfied: fsspec in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (2024.6.1)\r\n",
-      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib>=3.3.0->ultralytics) (1.16.0)\r\n",
-      "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch>=1.8.0->ultralytics) (2.1.5)\r\n",
-      "Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch>=1.8.0->ultralytics) (1.3.0)\r\n",
-      "Downloading ultralytics-8.3.57-py3-none-any.whl (905 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m905.3/905.3 kB\u001b[0m \u001b[31m19.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
-      "\u001b[?25hDownloading ultralytics_thop-2.0.13-py3-none-any.whl (26 kB)\r\n",
+      "Requirement already satisfied: fsspec in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (2024.9.0)\r\n",
+      "Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.10/dist-packages (from torch>=1.8.0->ultralytics) (1.13.1)\r\n",
+      "Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy==1.13.1->torch>=1.8.0->ultralytics) (1.3.0)\r\n",
+      "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib>=3.3.0->ultralytics) (1.17.0)\r\n",
+      "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch>=1.8.0->ultralytics) (3.0.2)\r\n",
+      "Requirement already satisfied: intel-openmp>=2024 in /usr/local/lib/python3.10/dist-packages (from mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
+      "Requirement already satisfied: tbb==2022.* in /usr/local/lib/python3.10/dist-packages (from mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2022.0.0)\r\n",
+      "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.10/dist-packages (from tbb==2022.*->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (1.2.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
+      "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
+      "Downloading ultralytics-8.3.75-py3-none-any.whl (914 kB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m914.9/914.9 kB\u001b[0m \u001b[31m24.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[?25hDownloading ultralytics_thop-2.0.14-py3-none-any.whl (26 kB)\r\n",
       "Installing collected packages: ultralytics-thop, ultralytics\r\n",
-      "Successfully installed ultralytics-8.3.57 ultralytics-thop-2.0.13\r\n"
+      "Successfully installed ultralytics-8.3.75 ultralytics-thop-2.0.14\r\n"
      ]
     }
    ],
@@ -83,19 +94,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "7f877f67",
+   "id": "087aeadf",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-04T05:06:21.947439Z",
-     "iopub.status.busy": "2025-01-04T05:06:21.947169Z",
-     "iopub.status.idle": "2025-01-04T05:13:56.992127Z",
-     "shell.execute_reply": "2025-01-04T05:13:56.991139Z"
+     "iopub.execute_input": "2025-02-15T20:15:02.641298Z",
+     "iopub.status.busy": "2025-02-15T20:15:02.640992Z",
+     "iopub.status.idle": "2025-02-15T22:51:32.794540Z",
+     "shell.execute_reply": "2025-02-15T22:51:32.793733Z"
     },
     "papermill": {
-     "duration": 455.048907,
-     "end_time": "2025-01-04T05:13:56.993556",
+     "duration": 9390.190482,
+     "end_time": "2025-02-15T22:51:32.828273",
      "exception": false,
-     "start_time": "2025-01-04T05:06:21.944649",
+     "start_time": "2025-02-15T20:15:02.637791",
      "status": "completed"
     },
     "tags": []
@@ -115,30 +126,28 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "100%|██████████| 49.4M/49.4M [00:14<00:00, 3.64MB/s]\n"
+      "100%|██████████| 49.4M/49.4M [00:00<00:00, 341MB/s]\n",
+      "Processing Videos: 0it [00:00, ?it/s]\n",
+      "Processing Videos: 0it [00:00, ?it/s]\n",
+      "Processing Videos: 0it [00:00, ?it/s]\n",
+      "Processing Videos: 100%|██████████| 24/24 [03:44<00:00,  9.34s/it]\n",
+      "Processing Videos: 100%|██████████| 88/88 [22:19<00:00, 15.22s/it]\n",
+      "Processing Videos: 100%|██████████| 23/23 [07:13<00:00, 18.87s/it]\n",
+      "Processing Videos: 0it [00:00, ?it/s]\n",
+      "Processing Videos: 100%|██████████| 88/88 [11:28<00:00,  7.83s/it]\n",
+      "Processing Videos: 100%|██████████| 315/315 [1:24:21<00:00, 16.07s/it]\n",
+      "Processing Videos: 100%|██████████| 82/82 [16:44<00:00, 12.26s/it]\n",
+      "Processing Videos: 0it [00:00, ?it/s]\n",
+      "Processing Videos: 100%|██████████| 10/10 [02:30<00:00, 15.05s/it]\n",
+      "Processing Videos: 100%|██████████| 3/3 [03:04<00:00, 61.57s/it]\n",
+      "Processing Videos: 100%|██████████| 10/10 [04:54<00:00, 29.45s/it]"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "200 file video ditemukan. Memulai pemrosesan...\n",
-      "\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "Processing Videos: 100%|██████████| 200/200 [07:15<00:00,  2.18s/video]"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n",
-      "Semua video telah selesai diproses!\n"
+      "Frame extraction completed!\n"
      ]
     },
     {
@@ -150,72 +159,93 @@
     }
    ],
    "source": [
-    "from ultralytics import YOLO\n",
-    "import cv2\n",
     "import os\n",
-    "from glob import glob\n",
-    "from tqdm import tqdm  # Library untuk progress bar\n",
+    "import cv2\n",
+    "from tqdm import tqdm\n",
+    "from ultralytics import YOLO\n",
     "\n",
     "# Load YOLOv9 model\n",
     "model = YOLO('yolov9c.pt')  # Ganti dengan path model YOLOv9 Anda\n",
     "\n",
-    "# Fungsi untuk menyimpan frame yang mengandung objek dengan label 'person'\n",
-    "def save_person_frames(video_path, output_folder, confidence_threshold=0.5):\n",
-    "    # Pastikan folder output ada\n",
-    "    os.makedirs(output_folder, exist_ok=True)\n",
-    "    \n",
-    "    # Buka video\n",
-    "    cap = cv2.VideoCapture(video_path)\n",
-    "    if not cap.isOpened():\n",
-    "        return  # Jika video tidak dapat dibuka, lewati\n",
+    "def extract_person_frames(input_dir, output_dir, width=320, height=240, confidence_threshold=0.5, frame_skip=3):\n",
+    "    for root, _, files in os.walk(input_dir):\n",
+    "        video_files = [file for file in files if file.endswith(('.mp4', '.avi', '.mov', '.mkv'))]\n",
+    "        for file in tqdm(video_files, desc=\"Processing Videos\"):\n",
+    "            video_path = os.path.join(root, file)\n",
+    "            relative_path = os.path.relpath(root, input_dir)\n",
+    "            output_folder = os.path.join(output_dir, relative_path)\n",
+    "            os.makedirs(output_folder, exist_ok=True)\n",
+    "            \n",
+    "            video_basename = os.path.splitext(file)[0]\n",
+    "            cap = cv2.VideoCapture(video_path)\n",
+    "            frame_count = 0\n",
+    "            saved_index = 0\n",
+    "            \n",
+    "            while cap.isOpened():\n",
+    "                ret, frame = cap.read()\n",
+    "                if not ret:\n",
+    "                    break\n",
+    "                \n",
+    "                # Simpan hanya setiap `frame_skip` frame\n",
+    "                if frame_count % frame_skip == 0:\n",
+    "                    results = model.predict(frame, conf=confidence_threshold, verbose=False)\n",
+    "                    result = results[0]\n",
+    "                    \n",
+    "                    # Periksa apakah ada deteksi dengan label 'person'\n",
+    "                    contains_person = any(int(box.cls) == 0 for box in result.boxes)\n",
+    "                    \n",
+    "                    if contains_person:\n",
+    "                        resized_frame = cv2.resize(frame, (width, height))\n",
+    "                        frame_filename = f\"{video_basename}_person_{saved_index:04d}.jpg\"\n",
+    "                        frame_path = os.path.join(output_folder, frame_filename)\n",
+    "                        cv2.imwrite(frame_path, resized_frame)\n",
+    "                        saved_index += 1\n",
+    "                \n",
+    "                frame_count += 1\n",
+    "            \n",
+    "            cap.release()\n",
     "\n",
-    "    frame_index = 0\n",
-    "    saved_index = 0\n",
-    "    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))  # Total frame dalam video\n",
-    "\n",
-    "    while cap.isOpened():\n",
-    "        ret, frame = cap.read()\n",
-    "        if not ret:\n",
-    "            break  # Hentikan jika video selesai\n",
-    "\n",
-    "        # Jalankan deteksi setiap 30 frame (untuk efisiensi)\n",
-    "        if frame_index % 30 == 0:\n",
-    "            results = model.predict(frame, conf=confidence_threshold, verbose=False)  # Deteksi pada frame\n",
-    "            result = results[0]  # Hanya satu frame diproses setiap kali\n",
-    "\n",
-    "            # Periksa apakah ada deteksi dengan label 'person'\n",
-    "            contains_person = any(int(box.cls) == 0 for box in result.boxes)\n",
-    "\n",
-    "            if contains_person:\n",
-    "                output_path = os.path.join(output_folder, f'{os.path.splitext(os.path.basename(video_path))[0]}_frame_{saved_index}.jpg')\n",
-    "                cv2.imwrite(output_path, frame)  # Simpan frame asli\n",
-    "                saved_index += 1\n",
-    "\n",
-    "        frame_index += 1\n",
-    "\n",
-    "    cap.release()\n",
-    "\n",
-    "# Fungsi untuk memproses banyak video dari folder\n",
-    "def process_videos(input_folder, output_folder, confidence_threshold=0.5):\n",
-    "    # Cari semua file video dalam folder dan subfolder\n",
-    "    video_paths = glob(os.path.join(input_folder, '**', '*.mp4'), recursive=True)\n",
-    "\n",
-    "    if not video_paths:\n",
-    "        print(f\"Tidak ada file video ditemukan di folder {input_folder}\")\n",
-    "        return\n",
-    "\n",
-    "    print(f\"{len(video_paths)} file video ditemukan. Memulai pemrosesan...\\n\")\n",
-    "\n",
-    "    # Progress bar untuk semua video\n",
-    "    for video_path in tqdm(video_paths, desc=\"Processing Videos\", unit=\"video\"):\n",
-    "        save_person_frames(video_path, output_folder, confidence_threshold)\n",
-    "\n",
-    "    print(\"\\nSemua video telah selesai diproses!\")\n",
-    "\n",
-    "# Contoh penggunaan\n",
-    "input_folder = '/kaggle/input/extracted-crime-train-data/Crime Trimmed'  # Folder input berisi video\n",
-    "output_folder = './Frame of Crime'  # Folder untuk menyimpan hasil\n",
-    "process_videos(input_folder, output_folder)\n"
+    "if __name__ == \"__main__\":\n",
+    "    input_path = \"/kaggle/input/extracted-crime-train-data\"\n",
+    "    output_path = \"/kaggle/working\"\n",
+    "    extract_person_frames(input_path, output_path)\n",
+    "    print(\"Frame extraction completed!\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "f76d9346",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-02-15T22:51:32.891734Z",
+     "iopub.status.busy": "2025-02-15T22:51:32.891325Z",
+     "iopub.status.idle": "2025-02-15T22:51:32.897238Z",
+     "shell.execute_reply": "2025-02-15T22:51:32.896519Z"
+    },
+    "papermill": {
+     "duration": 0.0389,
+     "end_time": "2025-02-15T22:51:32.898572",
+     "exception": false,
+     "start_time": "2025-02-15T22:51:32.859672",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "YOLO model file deleted.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Hapus file YOLO model setelah selesai\n",
+    "if os.path.exists('yolov9c.pt'):\n",
+    "    os.remove('yolov9c.pt')\n",
+    "    print(\"YOLO model file deleted.\")"
    ]
   }
  ],
@@ -225,7 +255,7 @@
    "dataSources": [
     {
      "datasetId": 6421420,
-     "sourceId": 10367499,
+     "sourceId": 10733117,
      "sourceType": "datasetVersion"
     }
    ],
@@ -253,14 +283,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 464.033977,
-   "end_time": "2025-01-04T05:13:58.329516",
+   "duration": 9399.723218,
+   "end_time": "2025-02-15T22:51:34.560788",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-01-04T05:06:14.295539",
+   "start_time": "2025-02-15T20:14:54.837570",
    "version": "2.6.0"
   }
  },
