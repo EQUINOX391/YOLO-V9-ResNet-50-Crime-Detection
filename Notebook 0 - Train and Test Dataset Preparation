@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "966e220b",
+   "id": "d7fa1e35",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-15T19:45:55.302412Z",
-     "iopub.status.busy": "2025-02-15T19:45:55.301963Z",
-     "iopub.status.idle": "2025-02-15T19:47:42.527539Z",
-     "shell.execute_reply": "2025-02-15T19:47:42.525285Z"
+     "iopub.execute_input": "2025-02-15T19:53:18.485850Z",
+     "iopub.status.busy": "2025-02-15T19:53:18.485531Z",
+     "iopub.status.idle": "2025-02-15T19:55:53.239742Z",
+     "shell.execute_reply": "2025-02-15T19:55:53.238963Z"
     },
     "papermill": {
-     "duration": 107.318228,
-     "end_time": "2025-02-15T19:47:42.616248",
+     "duration": 154.759169,
+     "end_time": "2025-02-15T19:55:53.242039",
      "exception": false,
-     "start_time": "2025-02-15T19:45:55.298020",
+     "start_time": "2025-02-15T19:53:18.482870",
      "status": "completed"
     },
     "tags": []
@@ -41,6 +41,7 @@
     "    \"Normal\": [\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/normal\"],\n",
     "    \"Vandalisme\": [\n",
     "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/vandalism\",\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/arson\"\n",
     "    ],\n",
     "    \"Pencurian\": [\n",
     "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\"\n",
@@ -105,13 +106,13 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "ca3c5198",
+   "id": "4525f405",
    "metadata": {
     "papermill": {
-     "duration": 0.121683,
-     "end_time": "2025-02-15T19:47:42.746210",
+     "duration": 0.001068,
+     "end_time": "2025-02-15T19:55:53.250641",
      "exception": false,
-     "start_time": "2025-02-15T19:47:42.624527",
+     "start_time": "2025-02-15T19:55:53.249573",
      "status": "completed"
     },
     "tags": []
@@ -155,14 +156,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 111.080868,
-   "end_time": "2025-02-15T19:47:43.475589",
+   "duration": 157.635747,
+   "end_time": "2025-02-15T19:55:53.669677",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-15T19:45:52.394721",
+   "start_time": "2025-02-15T19:53:16.033930",
    "version": "2.6.0"
   }
  },
