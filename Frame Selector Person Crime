@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "705d21a0",
+   "id": "4fe96646",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-15T20:14:57.344443Z",
-     "iopub.status.busy": "2025-02-15T20:14:57.344150Z",
-     "iopub.status.idle": "2025-02-15T20:15:02.633327Z",
-     "shell.execute_reply": "2025-02-15T20:15:02.632218Z"
+     "iopub.execute_input": "2025-02-16T08:47:08.174547Z",
+     "iopub.status.busy": "2025-02-16T08:47:08.174315Z",
+     "iopub.status.idle": "2025-02-16T08:47:13.527228Z",
+     "shell.execute_reply": "2025-02-16T08:47:13.526194Z"
     },
     "papermill": {
-     "duration": 5.293738,
-     "end_time": "2025-02-15T20:15:02.635036",
+     "duration": 5.357043,
+     "end_time": "2025-02-16T08:47:13.528826",
      "exception": false,
-     "start_time": "2025-02-15T20:14:57.341298",
+     "start_time": "2025-02-16T08:47:08.171783",
      "status": "completed"
     },
     "tags": []
@@ -79,7 +79,7 @@
       "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
       "Downloading ultralytics-8.3.75-py3-none-any.whl (914 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m914.9/914.9 kB\u001b[0m \u001b[31m24.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m914.9/914.9 kB\u001b[0m \u001b[31m19.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading ultralytics_thop-2.0.14-py3-none-any.whl (26 kB)\r\n",
       "Installing collected packages: ultralytics-thop, ultralytics\r\n",
       "Successfully installed ultralytics-8.3.75 ultralytics-thop-2.0.14\r\n"
@@ -94,19 +94,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "087aeadf",
+   "id": "47a60e73",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-15T20:15:02.641298Z",
-     "iopub.status.busy": "2025-02-15T20:15:02.640992Z",
-     "iopub.status.idle": "2025-02-15T22:51:32.794540Z",
-     "shell.execute_reply": "2025-02-15T22:51:32.793733Z"
+     "iopub.execute_input": "2025-02-16T08:47:13.534786Z",
+     "iopub.status.busy": "2025-02-16T08:47:13.534513Z",
+     "iopub.status.idle": "2025-02-16T10:00:15.765719Z",
+     "shell.execute_reply": "2025-02-16T10:00:15.764758Z"
     },
     "papermill": {
-     "duration": 9390.190482,
-     "end_time": "2025-02-15T22:51:32.828273",
+     "duration": 4382.259857,
+     "end_time": "2025-02-16T10:00:15.791325",
      "exception": false,
-     "start_time": "2025-02-15T20:15:02.637791",
+     "start_time": "2025-02-16T08:47:13.531468",
      "status": "completed"
     },
     "tags": []
@@ -126,21 +126,21 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "100%|██████████| 49.4M/49.4M [00:00<00:00, 341MB/s]\n",
+      "100%|██████████| 49.4M/49.4M [00:00<00:00, 135MB/s]\n",
       "Processing Videos: 0it [00:00, ?it/s]\n",
       "Processing Videos: 0it [00:00, ?it/s]\n",
       "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 24/24 [03:44<00:00,  9.34s/it]\n",
-      "Processing Videos: 100%|██████████| 88/88 [22:19<00:00, 15.22s/it]\n",
-      "Processing Videos: 100%|██████████| 23/23 [07:13<00:00, 18.87s/it]\n",
+      "Processing Videos: 100%|██████████| 11/11 [01:10<00:00,  6.38s/it]\n",
+      "Processing Videos: 100%|██████████| 60/60 [10:47<00:00, 10.79s/it]\n",
+      "Processing Videos: 100%|██████████| 23/23 [05:26<00:00, 14.21s/it]\n",
       "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 88/88 [11:28<00:00,  7.83s/it]\n",
-      "Processing Videos: 100%|██████████| 315/315 [1:24:21<00:00, 16.07s/it]\n",
-      "Processing Videos: 100%|██████████| 82/82 [16:44<00:00, 12.26s/it]\n",
+      "Processing Videos: 100%|██████████| 47/47 [04:03<00:00,  5.17s/it]\n",
+      "Processing Videos: 100%|██████████| 225/225 [25:53<00:00,  6.90s/it]\n",
+      "Processing Videos: 100%|██████████| 79/79 [17:29<00:00, 13.29s/it]\n",
       "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 10/10 [02:30<00:00, 15.05s/it]\n",
-      "Processing Videos: 100%|██████████| 3/3 [03:04<00:00, 61.57s/it]\n",
-      "Processing Videos: 100%|██████████| 10/10 [04:54<00:00, 29.45s/it]"
+      "Processing Videos: 100%|██████████| 5/5 [02:00<00:00, 24.08s/it]\n",
+      "Processing Videos: 100%|██████████| 1/1 [00:06<00:00,  6.22s/it]\n",
+      "Processing Videos: 100%|██████████| 10/10 [05:57<00:00, 35.77s/it]"
      ]
     },
     {
@@ -215,19 +215,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "f76d9346",
+   "id": "af7675ea",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-15T22:51:32.891734Z",
-     "iopub.status.busy": "2025-02-15T22:51:32.891325Z",
-     "iopub.status.idle": "2025-02-15T22:51:32.897238Z",
-     "shell.execute_reply": "2025-02-15T22:51:32.896519Z"
+     "iopub.execute_input": "2025-02-16T10:00:15.839268Z",
+     "iopub.status.busy": "2025-02-16T10:00:15.838853Z",
+     "iopub.status.idle": "2025-02-16T10:00:15.852589Z",
+     "shell.execute_reply": "2025-02-16T10:00:15.851883Z"
     },
     "papermill": {
-     "duration": 0.0389,
-     "end_time": "2025-02-15T22:51:32.898572",
+     "duration": 0.038775,
+     "end_time": "2025-02-16T10:00:15.853701",
      "exception": false,
-     "start_time": "2025-02-15T22:51:32.859672",
+     "start_time": "2025-02-16T10:00:15.814926",
      "status": "completed"
     },
     "tags": []
@@ -255,7 +255,7 @@
    "dataSources": [
     {
      "datasetId": 6421420,
-     "sourceId": 10733117,
+     "sourceId": 10762936,
      "sourceType": "datasetVersion"
     }
    ],
@@ -283,14 +283,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 9399.723218,
-   "end_time": "2025-02-15T22:51:34.560788",
+   "duration": 4391.817207,
+   "end_time": "2025-02-16T10:00:17.302561",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-15T20:14:54.837570",
+   "start_time": "2025-02-16T08:47:05.485354",
    "version": "2.6.0"
   }
  },
