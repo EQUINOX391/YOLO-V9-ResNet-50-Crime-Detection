@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "d7fa1e35",
+   "id": "80c4580e",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-15T19:53:18.485850Z",
-     "iopub.status.busy": "2025-02-15T19:53:18.485531Z",
-     "iopub.status.idle": "2025-02-15T19:55:53.239742Z",
-     "shell.execute_reply": "2025-02-15T19:55:53.238963Z"
+     "iopub.execute_input": "2025-02-16T08:29:47.149135Z",
+     "iopub.status.busy": "2025-02-16T08:29:47.148813Z",
+     "iopub.status.idle": "2025-02-16T08:30:52.342926Z",
+     "shell.execute_reply": "2025-02-16T08:30:52.341650Z"
     },
     "papermill": {
-     "duration": 154.759169,
-     "end_time": "2025-02-15T19:55:53.242039",
+     "duration": 65.199484,
+     "end_time": "2025-02-16T08:30:52.344971",
      "exception": false,
-     "start_time": "2025-02-15T19:53:18.482870",
+     "start_time": "2025-02-16T08:29:47.145487",
      "status": "completed"
     },
     "tags": []
@@ -40,8 +40,7 @@
     "source_folders = {\n",
     "    \"Normal\": [\"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/normal\"],\n",
     "    \"Vandalisme\": [\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/vandalism\",\n",
-    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/arson\"\n",
+    "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/vandalism\"\n",
     "    ],\n",
     "    \"Pencurian\": [\n",
     "        \"/kaggle/input/real-time-anomaly-detection-in-cctv-surveillance/data/stealing\"\n",
@@ -70,7 +69,7 @@
     "\n",
     "# Mengumpulkan data\n",
     "file_data = {\n",
-    "    \"Normal\": collect_files(source_folders[\"Normal\"], limit=30),\n",
+    "    \"Normal\": collect_files(source_folders[\"Normal\"], limit=5),\n",
     "    \"Vandalisme\": collect_files(source_folders[\"Vandalisme\"]),\n",
     "    \"Pencurian\": collect_files(source_folders[\"Pencurian\"])\n",
     "}\n",
@@ -106,13 +105,13 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "4525f405",
+   "id": "9d68b376",
    "metadata": {
     "papermill": {
-     "duration": 0.001068,
-     "end_time": "2025-02-15T19:55:53.250641",
+     "duration": 0.001014,
+     "end_time": "2025-02-16T08:30:52.347677",
      "exception": false,
-     "start_time": "2025-02-15T19:55:53.249573",
+     "start_time": "2025-02-16T08:30:52.346663",
      "status": "completed"
     },
     "tags": []
@@ -156,14 +155,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 157.635747,
-   "end_time": "2025-02-15T19:55:53.669677",
+   "duration": 68.410178,
+   "end_time": "2025-02-16T08:30:52.869802",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-15T19:53:16.033930",
+   "start_time": "2025-02-16T08:29:44.459624",
    "version": "2.6.0"
   }
  },
