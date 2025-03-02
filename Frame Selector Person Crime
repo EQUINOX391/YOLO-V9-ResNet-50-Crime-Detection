@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "eebf4acf",
+   "id": "6d0f0816",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-02-26T01:04:19.755356Z",
-     "iopub.status.busy": "2025-02-26T01:04:19.754971Z",
-     "iopub.status.idle": "2025-02-26T01:04:26.168646Z",
-     "shell.execute_reply": "2025-02-26T01:04:26.167413Z"
+     "iopub.execute_input": "2025-03-02T16:46:06.342566Z",
+     "iopub.status.busy": "2025-03-02T16:46:06.342258Z",
+     "iopub.status.idle": "2025-03-02T16:46:12.130979Z",
+     "shell.execute_reply": "2025-03-02T16:46:12.129970Z"
     },
     "papermill": {
-     "duration": 6.418952,
-     "end_time": "2025-02-26T01:04:26.170654",
+     "duration": 5.793343,
+     "end_time": "2025-03-02T16:46:12.132591",
      "exception": false,
-     "start_time": "2025-02-26T01:04:19.751702",
+     "start_time": "2025-03-02T16:46:06.339248",
      "status": "completed"
     },
     "tags": []
@@ -28,7 +28,7 @@
      "output_type": "stream",
      "text": [
       "Collecting ultralytics\r\n",
-      "  Downloading ultralytics-8.3.79-py3-none-any.whl.metadata (35 kB)\r\n",
+      "  Downloading ultralytics-8.3.82-py3-none-any.whl.metadata (35 kB)\r\n",
       "Requirement already satisfied: numpy<=2.1.1,>=1.23.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (1.26.4)\r\n",
       "Requirement already satisfied: matplotlib>=3.3.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (3.7.5)\r\n",
       "Requirement already satisfied: opencv-python>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (4.10.0.84)\r\n",
@@ -78,11 +78,11 @@
       "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.10/dist-packages (from tbb==2022.*->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (1.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
-      "Downloading ultralytics-8.3.79-py3-none-any.whl (921 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m921.8/921.8 kB\u001b[0m \u001b[31m16.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "Downloading ultralytics-8.3.82-py3-none-any.whl (922 kB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m922.2/922.2 kB\u001b[0m \u001b[31m16.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading ultralytics_thop-2.0.14-py3-none-any.whl (26 kB)\r\n",
       "Installing collected packages: ultralytics-thop, ultralytics\r\n",
-      "Successfully installed ultralytics-8.3.79 ultralytics-thop-2.0.14\r\n"
+      "Successfully installed ultralytics-8.3.82 ultralytics-thop-2.0.14\r\n"
      ]
     }
    ],
@@ -94,19 +94,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "be90e640",
+   "id": "ac929c93",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-26T01:04:26.177208Z",
-     "iopub.status.busy": "2025-02-26T01:04:26.176914Z",
-     "iopub.status.idle": "2025-02-26T03:57:06.093877Z",
-     "shell.execute_reply": "2025-02-26T03:57:06.093022Z"
+     "iopub.execute_input": "2025-03-02T16:46:12.138277Z",
+     "iopub.status.busy": "2025-03-02T16:46:12.137995Z",
+     "iopub.status.idle": "2025-03-02T17:20:42.974497Z",
+     "shell.execute_reply": "2025-03-02T17:20:42.973284Z"
     },
     "papermill": {
-     "duration": 10359.955142,
-     "end_time": "2025-02-26T03:57:06.128763",
+     "duration": 2070.84053,
+     "end_time": "2025-03-02T17:20:42.975776",
      "exception": false,
-     "start_time": "2025-02-26T01:04:26.173621",
+     "start_time": "2025-03-02T16:46:12.135246",
      "status": "completed"
     },
     "tags": []
@@ -126,21 +126,21 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "100%|██████████| 49.4M/49.4M [00:00<00:00, 174MB/s]\n",
-      "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 24/24 [04:10<00:00, 10.44s/it]\n",
-      "Processing Videos: 100%|██████████| 88/88 [24:11<00:00, 16.49s/it]\n",
-      "Processing Videos: 100%|██████████| 23/23 [07:47<00:00, 20.31s/it]\n",
-      "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 88/88 [12:26<00:00,  8.48s/it]\n",
-      "Processing Videos: 100%|██████████| 315/315 [1:33:32<00:00, 17.82s/it]\n",
-      "Processing Videos: 100%|██████████| 82/82 [18:43<00:00, 13.70s/it]\n",
-      "Processing Videos: 0it [00:00, ?it/s]\n",
-      "Processing Videos: 100%|██████████| 10/10 [02:46<00:00, 16.66s/it]\n",
-      "Processing Videos: 100%|██████████| 3/3 [03:25<00:00, 68.63s/it]\n",
-      "Processing Videos: 100%|██████████| 10/10 [05:26<00:00, 32.60s/it]"
+      "100%|██████████| 49.4M/49.4M [00:00<00:00, 196MB/s]\n",
+      "Processing Videos in extracted-crime-train-data: 0it [00:00, ?it/s]\n",
+      "Processing Videos in Dataset: 0it [00:00, ?it/s]\n",
+      "Processing Videos in Validation: 0it [00:00, ?it/s]\n",
+      "Processing Videos in Vandalisme: 100%|██████████| 24/24 [02:21<00:00,  5.90s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 88/88 [01:02<00:00,  1.41it/s]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 23/23 [04:20<00:00, 11.33s/it]\n",
+      "Processing Videos in Training: 0it [00:00, ?it/s]\n",
+      "Processing Videos in Vandalisme: 100%|██████████| 88/88 [06:59<00:00,  4.77s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 315/315 [04:15<00:00,  1.23it/s]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 82/82 [10:34<00:00,  7.74s/it]\n",
+      "Processing Videos in Test: 0it [00:00, ?it/s]\n",
+      "Processing Videos in Vandalisme: 100%|██████████| 10/10 [01:34<00:00,  9.44s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 3/3 [00:09<00:00,  3.27s/it]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 10/10 [03:04<00:00, 18.46s/it]"
      ]
     },
     {
@@ -167,10 +167,12 @@
     "# Load YOLOv9 model\n",
     "model = YOLO('yolov9c.pt')  # Ganti dengan path model YOLOv9 Anda\n",
     "\n",
-    "def extract_person_frames(input_dir, output_dir, width=64, height=64, confidence_threshold=0.5, frame_skip=3):\n",
+    "def extract_frames_for_resnet(input_dir, output_dir, width=224, height=224, confidence_threshold=0.5, frame_skip=5):\n",
     "    for root, _, files in os.walk(input_dir):\n",
     "        video_files = [file for file in files if file.endswith(('.mp4', '.avi', '.mov', '.mkv'))]\n",
-    "        for file in tqdm(video_files, desc=\"Processing Videos\"):\n",
+    "        category = os.path.basename(root)  # Ambil kategori dari nama folder terakhir\n",
+    "\n",
+    "        for file in tqdm(video_files, desc=f\"Processing Videos in {category}\"):\n",
     "            video_path = os.path.join(root, file)\n",
     "            relative_path = os.path.relpath(root, input_dir)\n",
     "            output_folder = os.path.join(output_dir, relative_path)\n",
@@ -188,18 +190,23 @@
     "                \n",
     "                # Simpan hanya setiap `frame_skip` frame\n",
     "                if frame_count % frame_skip == 0:\n",
-    "                    results = model.predict(frame, conf=confidence_threshold, verbose=False)\n",
-    "                    result = results[0]\n",
+    "                    if category in [\"Pencurian\", \"Vandalisme\"]:\n",
+    "                        results = model.predict(frame, conf=confidence_threshold, verbose=False)\n",
+    "                        result = results[0]\n",
+    "                        \n",
+    "                        # Periksa apakah ada deteksi dengan label 'person'\n",
+    "                        contains_person = any(int(box.cls) == 0 for box in result.boxes)\n",
+    "                        \n",
+    "                        if not contains_person:\n",
+    "                            frame_count += 1\n",
+    "                            continue  # Lewati frame jika tidak ada orang\n",
     "                    \n",
-    "                    # Periksa apakah ada deteksi dengan label 'person'\n",
-    "                    contains_person = any(int(box.cls) == 0 for box in result.boxes)\n",
-    "                    \n",
-    "                    if contains_person:\n",
-    "                        resized_frame = cv2.resize(frame, (width, height))\n",
-    "                        frame_filename = f\"{video_basename}_person_{saved_index:04d}.jpg\"\n",
-    "                        frame_path = os.path.join(output_folder, frame_filename)\n",
-    "                        cv2.imwrite(frame_path, resized_frame)\n",
-    "                        saved_index += 1\n",
+    "                    # Resize frame untuk ResNet50\n",
+    "                    resized_frame = cv2.resize(frame, (width, height))\n",
+    "                    frame_filename = f\"{video_basename}_{saved_index:04d}.jpg\"\n",
+    "                    frame_path = os.path.join(output_folder, frame_filename)\n",
+    "                    cv2.imwrite(frame_path, resized_frame)\n",
+    "                    saved_index += 1\n",
     "                \n",
     "                frame_count += 1\n",
     "            \n",
@@ -208,26 +215,26 @@
     "if __name__ == \"__main__\":\n",
     "    input_path = \"/kaggle/input/extracted-crime-train-data\"\n",
     "    output_path = \"/kaggle/working\"\n",
-    "    extract_person_frames(input_path, output_path)\n",
+    "    extract_frames_for_resnet(input_path, output_path)\n",
     "    print(\"Frame extraction completed!\")"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "f7938cd1",
+   "id": "8b81186f",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-02-26T03:57:06.194702Z",
-     "iopub.status.busy": "2025-02-26T03:57:06.194237Z",
-     "iopub.status.idle": "2025-02-26T03:57:06.208446Z",
-     "shell.execute_reply": "2025-02-26T03:57:06.207612Z"
+     "iopub.execute_input": "2025-03-02T17:20:43.033073Z",
+     "iopub.status.busy": "2025-03-02T17:20:43.032593Z",
+     "iopub.status.idle": "2025-03-02T17:20:43.048250Z",
+     "shell.execute_reply": "2025-03-02T17:20:43.047443Z"
     },
     "papermill": {
-     "duration": 0.048684,
-     "end_time": "2025-02-26T03:57:06.209728",
+     "duration": 0.045546,
+     "end_time": "2025-03-02T17:20:43.049487",
      "exception": false,
-     "start_time": "2025-02-26T03:57:06.161044",
+     "start_time": "2025-03-02T17:20:43.003941",
      "status": "completed"
     },
     "tags": []
@@ -284,14 +291,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 10370.924767,
-   "end_time": "2025-02-26T03:57:07.673941",
+   "duration": 2081.724569,
+   "end_time": "2025-03-02T17:20:45.376734",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-02-26T01:04:16.749174",
+   "start_time": "2025-03-02T16:46:03.652165",
    "version": "2.6.0"
   }
  },
