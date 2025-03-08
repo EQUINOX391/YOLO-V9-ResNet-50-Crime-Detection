@@ -3,21 +3,21 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "6d0f0816",
+   "id": "76aec1b4",
    "metadata": {
     "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
     "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
     "execution": {
-     "iopub.execute_input": "2025-03-02T16:46:06.342566Z",
-     "iopub.status.busy": "2025-03-02T16:46:06.342258Z",
-     "iopub.status.idle": "2025-03-02T16:46:12.130979Z",
-     "shell.execute_reply": "2025-03-02T16:46:12.129970Z"
+     "iopub.execute_input": "2025-03-08T00:09:06.322851Z",
+     "iopub.status.busy": "2025-03-08T00:09:06.322536Z",
+     "iopub.status.idle": "2025-03-08T00:09:11.599882Z",
+     "shell.execute_reply": "2025-03-08T00:09:11.598947Z"
     },
     "papermill": {
-     "duration": 5.793343,
-     "end_time": "2025-03-02T16:46:12.132591",
+     "duration": 5.281817,
+     "end_time": "2025-03-08T00:09:11.601470",
      "exception": false,
-     "start_time": "2025-03-02T16:46:06.339248",
+     "start_time": "2025-03-08T00:09:06.319653",
      "status": "completed"
     },
     "tags": []
@@ -28,7 +28,7 @@
      "output_type": "stream",
      "text": [
       "Collecting ultralytics\r\n",
-      "  Downloading ultralytics-8.3.82-py3-none-any.whl.metadata (35 kB)\r\n",
+      "  Downloading ultralytics-8.3.85-py3-none-any.whl.metadata (35 kB)\r\n",
       "Requirement already satisfied: numpy<=2.1.1,>=1.23.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (1.26.4)\r\n",
       "Requirement already satisfied: matplotlib>=3.3.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (3.7.5)\r\n",
       "Requirement already satisfied: opencv-python>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from ultralytics) (4.10.0.84)\r\n",
@@ -78,11 +78,11 @@
       "Requirement already satisfied: tcmlib==1.* in /usr/local/lib/python3.10/dist-packages (from tbb==2022.*->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (1.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-rt in /usr/local/lib/python3.10/dist-packages (from mkl_umath->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
       "Requirement already satisfied: intel-cmplr-lib-ur==2024.2.0 in /usr/local/lib/python3.10/dist-packages (from intel-openmp>=2024->mkl->numpy<=2.1.1,>=1.23.0->ultralytics) (2024.2.0)\r\n",
-      "Downloading ultralytics-8.3.82-py3-none-any.whl (922 kB)\r\n",
-      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m922.2/922.2 kB\u001b[0m \u001b[31m16.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
+      "Downloading ultralytics-8.3.85-py3-none-any.whl (922 kB)\r\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m922.2/922.2 kB\u001b[0m \u001b[31m24.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n",
       "\u001b[?25hDownloading ultralytics_thop-2.0.14-py3-none-any.whl (26 kB)\r\n",
       "Installing collected packages: ultralytics-thop, ultralytics\r\n",
-      "Successfully installed ultralytics-8.3.82 ultralytics-thop-2.0.14\r\n"
+      "Successfully installed ultralytics-8.3.85 ultralytics-thop-2.0.14\r\n"
      ]
     }
    ],
@@ -94,19 +94,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "ac929c93",
+   "id": "02c39048",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-02T16:46:12.138277Z",
-     "iopub.status.busy": "2025-03-02T16:46:12.137995Z",
-     "iopub.status.idle": "2025-03-02T17:20:42.974497Z",
-     "shell.execute_reply": "2025-03-02T17:20:42.973284Z"
+     "iopub.execute_input": "2025-03-08T00:09:11.607017Z",
+     "iopub.status.busy": "2025-03-08T00:09:11.606781Z",
+     "iopub.status.idle": "2025-03-08T02:07:52.322114Z",
+     "shell.execute_reply": "2025-03-08T02:07:52.321077Z"
     },
     "papermill": {
-     "duration": 2070.84053,
-     "end_time": "2025-03-02T17:20:42.975776",
+     "duration": 7120.719467,
+     "end_time": "2025-03-08T02:07:52.323508",
      "exception": false,
-     "start_time": "2025-03-02T16:46:12.135246",
+     "start_time": "2025-03-08T00:09:11.604041",
      "status": "completed"
     },
     "tags": []
@@ -126,21 +126,21 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "100%|██████████| 49.4M/49.4M [00:00<00:00, 196MB/s]\n",
+      "100%|██████████| 49.4M/49.4M [00:00<00:00, 95.1MB/s]\n",
       "Processing Videos in extracted-crime-train-data: 0it [00:00, ?it/s]\n",
       "Processing Videos in Dataset: 0it [00:00, ?it/s]\n",
       "Processing Videos in Validation: 0it [00:00, ?it/s]\n",
-      "Processing Videos in Vandalisme: 100%|██████████| 24/24 [02:21<00:00,  5.90s/it]\n",
-      "Processing Videos in Normal: 100%|██████████| 88/88 [01:02<00:00,  1.41it/s]\n",
-      "Processing Videos in Pencurian: 100%|██████████| 23/23 [04:20<00:00, 11.33s/it]\n",
+      "Processing Videos in Vandalisme: 100%|██████████| 25/25 [03:18<00:00,  7.93s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 196/196 [01:21<00:00,  2.39it/s]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 82/82 [22:29<00:00, 16.45s/it]\n",
       "Processing Videos in Training: 0it [00:00, ?it/s]\n",
-      "Processing Videos in Vandalisme: 100%|██████████| 88/88 [06:59<00:00,  4.77s/it]\n",
-      "Processing Videos in Normal: 100%|██████████| 315/315 [04:15<00:00,  1.23it/s]\n",
-      "Processing Videos in Pencurian: 100%|██████████| 82/82 [10:34<00:00,  7.74s/it]\n",
+      "Processing Videos in Vandalisme: 100%|██████████| 90/90 [10:53<00:00,  7.27s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 638/638 [06:54<00:00,  1.54it/s]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 260/260 [54:12<00:00, 12.51s/it]\n",
       "Processing Videos in Test: 0it [00:00, ?it/s]\n",
-      "Processing Videos in Vandalisme: 100%|██████████| 10/10 [01:34<00:00,  9.44s/it]\n",
-      "Processing Videos in Normal: 100%|██████████| 3/3 [00:09<00:00,  3.27s/it]\n",
-      "Processing Videos in Pencurian: 100%|██████████| 10/10 [03:04<00:00, 18.46s/it]"
+      "Processing Videos in Vandalisme: 100%|██████████| 10/10 [03:24<00:00, 20.48s/it]\n",
+      "Processing Videos in Normal: 100%|██████████| 3/3 [00:04<00:00,  1.48s/it]\n",
+      "Processing Videos in Pencurian: 100%|██████████| 36/36 [15:51<00:00, 26.42s/it]"
      ]
     },
     {
@@ -167,7 +167,7 @@
     "# Load YOLOv9 model\n",
     "model = YOLO('yolov9c.pt')  # Ganti dengan path model YOLOv9 Anda\n",
     "\n",
-    "def extract_frames_for_resnet(input_dir, output_dir, width=224, height=224, confidence_threshold=0.5, frame_skip=5):\n",
+    "def extract_frames_for_resnet(input_dir, output_dir, width=224, height=224, confidence_threshold=0.5, frame_skip=3):\n",
     "    for root, _, files in os.walk(input_dir):\n",
     "        video_files = [file for file in files if file.endswith(('.mp4', '.avi', '.mov', '.mkv'))]\n",
     "        category = os.path.basename(root)  # Ambil kategori dari nama folder terakhir\n",
@@ -222,19 +222,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "8b81186f",
+   "id": "e6fd0772",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-03-02T17:20:43.033073Z",
-     "iopub.status.busy": "2025-03-02T17:20:43.032593Z",
-     "iopub.status.idle": "2025-03-02T17:20:43.048250Z",
-     "shell.execute_reply": "2025-03-02T17:20:43.047443Z"
+     "iopub.execute_input": "2025-03-08T02:07:52.428883Z",
+     "iopub.status.busy": "2025-03-08T02:07:52.428477Z",
+     "iopub.status.idle": "2025-03-08T02:07:52.434885Z",
+     "shell.execute_reply": "2025-03-08T02:07:52.433871Z"
     },
     "papermill": {
-     "duration": 0.045546,
-     "end_time": "2025-03-02T17:20:43.049487",
+     "duration": 0.060057,
+     "end_time": "2025-03-08T02:07:52.436200",
      "exception": false,
-     "start_time": "2025-03-02T17:20:43.003941",
+     "start_time": "2025-03-08T02:07:52.376143",
      "status": "completed"
     },
     "tags": []
@@ -262,8 +262,8 @@
    "dataSources": [
     {
      "datasetId": 6421420,
-     "isSourceIdPinned": true,
-     "sourceId": 10759498,
+     "isSourceIdPinned": false,
+     "sourceId": 10940838,
      "sourceType": "datasetVersion"
     }
    ],
@@ -291,14 +291,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 2081.724569,
-   "end_time": "2025-03-02T17:20:45.376734",
+   "duration": 7130.357479,
+   "end_time": "2025-03-08T02:07:54.116914",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2025-03-02T16:46:03.652165",
+   "start_time": "2025-03-08T00:09:03.759435",
    "version": "2.6.0"
   }
  },
